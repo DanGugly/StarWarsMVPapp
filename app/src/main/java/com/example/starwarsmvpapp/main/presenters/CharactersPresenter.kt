@@ -33,10 +33,17 @@ class CharactersPresenter(
                     { characters ->
                         // here I am calling the characters updated method from the view contract interface
                         // in order to update the view
-                        if (characters!=null){
+
+                        // here we can use the 'let' scope block
+                        characters?.let {
                             Log.d("SERVERDATA",characters.toString())
                             characterViewContract.characterUpdated(characters.StarChars)
                         }
+
+//                        if (characters!=null){
+//                            Log.d("SERVERDATA",characters.toString())
+//                            characterViewContract.characterUpdated(characters.StarChars)
+//                        }
                     },
                     { throwable ->
                         // I am updating hte view contract when an error occurs
